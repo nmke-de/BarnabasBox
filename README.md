@@ -24,7 +24,9 @@ Barnabas is a cool name, period. Also, I didn't come up with a better name when 
 
 ## Build
 
-Makefile incoming.
+Type `make` if you have make installed. Please note that the default compiler in the Makefile is `cproc`. If you prefer another compiler, edit the Makefile please.
+
+Otherwise, you can compile each file manually with `CC -c -o name-of-file.o name-of-file.c`, where `CC` is your C compiler and `name-of-file` the file you want to compile.
 
 ## Usage
 
