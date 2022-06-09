@@ -1,7 +1,10 @@
 
 CC = cproc
 
-build: barnabas.o bread.o bsize.o clear.o
+build: object-files
+	ar -rc libbarnabas.a *.o
+
+object-files: barnabas.o bread.o bsize.o clear.o
 
 barnabas.o: barnabas.c barnabas.h
 	$(CC) -c -o barnabas.o barnabas.c
@@ -17,6 +20,7 @@ clear.o: clear.c barnabas.h
 
 clean:
 	rm -f *.o
+	rm -f libbarnabas.a
 
 all: build clean
 
