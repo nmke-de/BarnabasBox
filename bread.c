@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <stddef.h>
 #include <string.h>
-#include "../Itoa/itoa.h"
+#include "Itoa/itoa.h"
 #include "barnabas.h"
 
 void bread(char *buf, int n, char *prompt) {
