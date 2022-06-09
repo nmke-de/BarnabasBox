@@ -13,11 +13,11 @@ void binit() {
 	newSettings.c_lflag &= (~ICANON & ~ECHO);
 	tcsetattr(fileno(stdin), TCSANOW, &newSettings);
 	// Write to new screen, no line wrap, hide cursor, clear screen, go to 0,0
-	fputs("\033[?1049h\033[?7l\033[?25l\033[2J\033[H", stdout);
+	bputs("\033[?1049h\033[?7l\033[?25l\033[2J\033[H");
 }
 
 void bquit() {
 	// Line wrap, show cursor, write to old screen
-	fputs("\033[?7h\033[?25h\033[?1049l", stdout);
+	bputs("\033[?7h\033[?25h\033[?1049l");
 	tcsetattr(fileno(stdin), TCSANOW, old_settings());
 }

@@ -16,13 +16,13 @@ void bread(char *buf, int n, char *prompt) {
 	newSettings.c_lflag |= (ECHO|ICANON);
 	tcsetattr(fileno(stdin), TCSANOW, &newSettings);
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &wsize);
-	fputs("\033[s\033[", stdout);
-	fputs(itoa(wsize.ws_row, 10), stdout);
-	fputs(";1H\033[2K\033[?25h", stdout);
-	fputs(prompt, stdout);
+	bputs("\033[s\033[");
+	bputs(itoa(wsize.ws_row, 10));
+	bputs(";1H\033[2K\033[?25h");
+	bputs(prompt);
 	fgets(buf, n, stdin);
 	int tmplen = strlen(buf) - 1;
 	if (buf[tmplen] == '\n') buf[tmplen] = 0;
-	fputs("\033[A1\033[?25l\033[u", stdout);
+	bputs("\033[A1\033[?25l\033[u");
 	tcsetattr(fileno(stdin), TCSANOW, &oldSettings);
 }
