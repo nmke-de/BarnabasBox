@@ -37,7 +37,7 @@ int main() {
 	// Initialize TUI
 	binit();
 	
-	fputs("Hello, World!", stdout);
+	bputs("Hello, World!");
 	fgetc(stdin);
 
 	// Clear screen
@@ -50,7 +50,7 @@ int main() {
 	// Input prompt
 	char str[64];
 	bread(str, 64, "Type something here: ");
-	fputs(str, stdout);
+	bputs(str);
 
 	fgetc(stdin);
 	
