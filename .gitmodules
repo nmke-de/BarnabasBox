@@ -1,0 +1,3 @@
+[submodule "Itoa"]
+	path = Itoa
+	url = https://github.com/nmke-de/Itoa
