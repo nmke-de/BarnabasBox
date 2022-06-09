@@ -2,14 +2,14 @@
 CC = cproc
 
 build: object-files
-	ar -rc libbarnabas.a *.o
+	ar -rc libbarnabas.a *.o Itoa/itoa.o
 
-object-files: barnabas.o bread.o bsize.o clear.o
+object-files: barnabas.o bread.o bsize.o clear.o Itoa-Submodule
 
 barnabas.o: barnabas.c barnabas.h
 	$(CC) -c -o barnabas.o barnabas.c
 
-bread.o: bread.c barnabas.h
+bread.o: bread.c barnabas.h Itoa/itoa.h
 	$(CC) -c -o bread.o bread.c
 
 bsize.o: bsize.c barnabas.h
@@ -17,6 +17,9 @@ bsize.o: bsize.c barnabas.h
 
 clear.o: clear.c barnabas.h
 	$(CC) -c -o clear.o clear.c
+
+Itoa-Submodule: Itoa/
+	make -C Itoa -f Makefile
 
 clean:
 	rm -f *.o
