@@ -23,6 +23,7 @@ Itoa-Submodule: Itoa/
 
 clean:
 	rm -f *.o
+	rm -f Itoa/*.o
 	rm -f libbarnabas.a
 
 all: build clean
