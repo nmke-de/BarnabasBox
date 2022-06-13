@@ -60,4 +60,4 @@ int main() {
 }
 ```
 
-For more examples, take a look [here](https://github.com/nmke-de/Examples4BarnabasBox)!
+For more examples, take a look [here](https://github.com/nmke-de/Examples4BarnabasBox) or [here](https://github.com/nmke-de/bar-menu)!
