@@ -1,5 +1,4 @@
 
-CC = cproc
 
 build: object-files
 	ar -rc libbarnabas.a *.o Itoa/itoa.o
