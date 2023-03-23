@@ -13,7 +13,7 @@ void bread(char *buf, int n, char *prompt) {
 	int goneleft = 0;
 	tcgetattr(fileno(stdin), &oldSettings);
 	newSettings = oldSettings;
-	newSettings.c_lflag |= (ECHO|ICANON);
+	newSettings.c_lflag |= (ECHO | ICANON);
 	tcsetattr(fileno(stdin), TCSANOW, &newSettings);
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &wsize);
 	bputs("\033[s\033[");
@@ -22,7 +22,8 @@ void bread(char *buf, int n, char *prompt) {
 	bputs(prompt);
 	fgets(buf, n, stdin);
 	int tmplen = strlen(buf) - 1;
-	if (buf[tmplen] == '\n') buf[tmplen] = 0;
+	if (buf[tmplen] == '\n')
+		buf[tmplen] = 0;
 	bputs("\033[A1\033[?25l\033[u");
 	tcsetattr(fileno(stdin), TCSANOW, &oldSettings);
 }
