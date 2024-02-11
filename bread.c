@@ -16,10 +16,7 @@ void bread(char *buf, int n, char *prompt) {
 	newSettings.c_lflag |= (ECHO | ICANON);
 	tcsetattr(STDIN_FILENO, TCSANOW, &newSettings);
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &wsize);
-	bputs("\033[s\033[");
-	bputs(itoa(wsize.ws_row, 10));
-	bputs(";1H\033[2K\033[?25h");
-	bputs(prompt);
+	bputs("\033[s\033[", itoa(wsize.ws_row, 10), ";1H\033[2K\033[?25h", prompt);
 	read(STDIN_FILENO, buf, n);
 	int tmplen = strlen(buf) - 1;
 	if (buf[tmplen] == '\n')
