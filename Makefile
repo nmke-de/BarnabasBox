@@ -5,17 +5,17 @@ build: object-files
 
 object-files: barnabas.o bread.o bsize.o clear.o Itoa-Submodule print-Submodule
 
-barnabas.o: barnabas.c barnabas.h
-	$(CC) -c -o barnabas.o barnabas.c print/print.h
+barnabas.o: barnabas.c barnabas.h print/print.h
+	$(CC) -c -o barnabas.o barnabas.c
 
-bread.o: bread.c barnabas.h Itoa/itoa.h
-	$(CC) -c -o bread.o bread.c print/print.h
+bread.o: bread.c barnabas.h Itoa/itoa.h print/print.h
+	$(CC) -c -o bread.o bread.c
 
 bsize.o: bsize.c barnabas.h
 	$(CC) -c -o bsize.o bsize.c
 
-clear.o: clear.c barnabas.h
-	$(CC) -c -o clear.o clear.c print/print.h
+clear.o: clear.c barnabas.h print/print.h
+	$(CC) -c -o clear.o clear.c
 
 Itoa-Submodule: Itoa/
 	make -C Itoa -f Makefile
@@ -26,6 +26,7 @@ print-Submodule: print/
 clean:
 	rm -f *.o
 	rm -f Itoa/*.o
+	make -C print -f Makefile clean
 	rm -f libbarnabas.a
 
 all: build clean
