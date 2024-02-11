@@ -1,3 +1,6 @@
 [submodule "Itoa"]
 	path = Itoa
 	url = https://github.com/nmke-de/Itoa
+[submodule "print"]
+	path = print
+	url = https://github.com/nmke-de/print

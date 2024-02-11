@@ -20,6 +20,9 @@ clear.o: clear.c barnabas.h
 Itoa-Submodule: Itoa/
 	make -C Itoa -f Makefile
 
+print-Submodule: print/
+	make -C print -f Makefile
+
 clean:
 	rm -f *.o
 	rm -f Itoa/*.o
