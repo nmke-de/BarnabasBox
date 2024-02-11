@@ -1,7 +1,7 @@
 
 
 build: object-files
-	ar -rc libbarnabas.a *.o Itoa/itoa.o print/libprint.a
+	ar -rc libbarnabas.a *.o Itoa/itoa.o print/printv.o
 
 object-files: barnabas.o bread.o bsize.o clear.o Itoa-Submodule print-Submodule
 
